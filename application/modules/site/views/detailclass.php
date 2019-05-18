@@ -29,9 +29,9 @@ if(isset($_SESSION['UserInfo']) || !empty($_SESSION['UserInfo'])){
             <div class="col-md-2 col-sm-12 padd-r-0">
                 <div class="detailjob-header">
                     <?php if(!empty($item->Image)){?>
-                                        <img class="img-responsive" src="<?= gethumbnail(geturlimageAvatar(strtotime($item->CreateDate)).$item->Image,$item->Image,strtotime($item->CreateDate),180,180,100) ?>" onerror='this.onerror=null;this.src="images/no-image2.png";' />
+                                        <img class="img-responsive" src="<?= gethumbnail(geturlimageAvatar(strtotime($item->CreateDate)).$item->Image,$item->Image,strtotime($item->CreateDate),180,180,100) ?>" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' />
                                     <?php }else{ ?>
-                                     <img class="img-responsive" src="images/no-image2.png" alt="#" onerror='this.onerror=null;this.src="images/no-image2.png";' />
+                                     <img class="img-responsive" src="ubuntu/giasu123/images/no-image2.png" alt="#" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' />
                                      <?php } ?>
                 </div>
             </div>
@@ -406,9 +406,9 @@ if(isset($_SESSION['UserInfo']) || !empty($_SESSION['UserInfo'])){
                                <div class="company_logo">
                                   <a rel="nofollow" href="<?php echo base_url().'lop-hoc/'.vn_str_filter($n->ClassTitle).'-'.$n->ClassID ?>" title="<?php echo $n->ClassTitle; ?>">
                                     <?php if(!empty($n->Image)){?>
-                                        <img src="<?= gethumbnail(geturlimageAvatar(strtotime($n->CreateDate)).$n->Image,$n->Image,strtotime($n->CreateDate),63,63,100) ?>" onerror='this.onerror=null;this.src="images/no-image2.png";' />
+                                        <img src="<?= gethumbnail(geturlimageAvatar(strtotime($n->CreateDate)).$n->Image,$n->Image,strtotime($n->CreateDate),63,63,100) ?>" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' />
                                     <?php }else{ ?>
-                                     <img src="images/no-image2.png" alt="#" onerror='this.onerror=null;this.src="images/no-image2.png";' />
+                                     <img src="ubuntu/giasu123/images/no-image2.png" alt="#" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' />
                                      <?php } ?>
                                   </a>
                                </div>

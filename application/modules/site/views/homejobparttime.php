@@ -181,9 +181,9 @@
                                     <div class="itemnews_l">
                                         <a rel="nofollow" class="logouser">
                                         <?php if(!empty($n->Image)){?>
-                                        <img src="<?= gethumbnail(geturlimagejob($n->usc_create_time).$n->usc_logo,$n->usc_logo,$n->usc_create_time,63,63,100) ?>" onerror='this.onerror=null;this.src="images/no-image2.png";' alt="<?php echo $n->new_title?>"/>
+                                        <img src="<?= gethumbnail(geturlimagejob($n->usc_create_time).$n->usc_logo,$n->usc_logo,$n->usc_create_time,63,63,100) ?>" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' alt="<?php echo $n->new_title?>"/>
                                     <?php }else{ ?>
-                                     <img src="images/no-image2.png" alt="no image" onerror='this.onerror=null;this.src="images/no-image2.png";' />
+                                     <img src="ubuntu/giasu123/images/no-image2.png" alt="no image" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' />
                                      <?php } ?>
                                      </a>
 
@@ -216,9 +216,9 @@
                                     <div class="itemnews_l">
                                         <a rel="nofollow" class="logouser">
                                         <?php if(!empty($n->Image)){?>
-                                        <img src="<?= gethumbnail(geturlimagejob($n->usc_create_time).$n->usc_logo,$n->usc_logo,$n->usc_create_time,63,63,100) ?>" onerror='this.onerror=null;this.src="images/no-image2.png";' alt="<?php echo $n->new_title?>" />
+                                        <img src="<?= gethumbnail(geturlimagejob($n->usc_create_time).$n->usc_logo,$n->usc_logo,$n->usc_create_time,63,63,100) ?>" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' alt="<?php echo $n->new_title?>" />
                                     <?php }else{ ?>
-                                     <img src="images/no-image2.png" alt="no image" onerror='this.onerror=null;this.src="images/no-image2.png";' />
+                                     <img src="ubuntu/giasu123/images/no-image2.png" alt="no image" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' />
                                      <?php } ?>
                                      </a>
                                         <span><?php echo date('d/m/Y',$n->new_han_nop)  ?></span>
@@ -261,9 +261,9 @@
                                        <div class="company_logo">
                                           <a rel="nofollow" href="<?php echo base_url()."".vn_str_filter($n->new_title)."-job".$n->new_id.".html"; ?>" title="<?php echo $n->new_title ?>">
                                             <?php if(!empty($n->Image)){?>
-                                                <img src="<?= gethumbnail(geturlimageAvatar(strtotime($n->usc_create_time)).$n->usc_logo,$n->usc_logo,strtotime($n->usc_create_time),240,175,80) ?>" onerror='this.onerror=null;this.src="images/no-image2.png";' alt="<?php echo $n->new_title?>" />
+                                                <img src="<?= gethumbnail(geturlimageAvatar(strtotime($n->usc_create_time)).$n->usc_logo,$n->usc_logo,strtotime($n->usc_create_time),240,175,80) ?>" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' alt="<?php echo $n->new_title?>" />
                                             <?php }else{ ?>
-                                             <img src="images/no-image2.png" alt="no image" onerror='this.onerror=null;this.src="images/no-image2.png";' />
+                                             <img src="ubuntu/giasu123/images/no-image2.png" alt="no image" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' />
                                              <?php } ?>
                                           </a>
                                        </div>
@@ -302,9 +302,9 @@
                                        <div class="company_logo">
                                           <a rel="nofollow" href="<?php echo base_url()."".vn_str_filter($n->new_title)."-job".$n->new_id.".html"; ?>" title="<?php echo $n->new_title ?>">
                                             <?php if(!empty($n->Image)){?>
-                                                <img src="<?= gethumbnail(geturlimageAvatar(strtotime($n->usc_create_time)).$n->usc_logo,$n->usc_logo,strtotime($n->usc_create_time),240,175,80) ?>" onerror='this.onerror=null;this.src="images/no-image2.png";' alt="<?php $n->new_title?>" />
+                                                <img src="<?= gethumbnail(geturlimageAvatar(strtotime($n->usc_create_time)).$n->usc_logo,$n->usc_logo,strtotime($n->usc_create_time),240,175,80) ?>" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' alt="<?php $n->new_title?>" />
                                             <?php }else{ ?>
-                                             <img src="images/no-image2.png" alt="no image" onerror='this.onerror=null;this.src="images/no-image2.png";' />
+                                             <img src="ubuntu/giasu123/images/no-image2.png" alt="no image" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' />
                                              <?php } ?>
                                           </a>
                                        </div>

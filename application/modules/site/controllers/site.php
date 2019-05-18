@@ -1175,7 +1175,7 @@ class site extends Controller
 				$data['meta_title']="Đăng nhập chung";
 				$data['meta_key']="Đăng nhập gia sư";
 				$data['meta_des']="Đăng nhập gia sư";
-				$data['mess']='Bạn vui lòng điền đầy đủ các thông tin bắt buộc + email nhé ^^';
+				$data['mess']='Bạn vui lòng điền đầy đủ các thông tin bắt buộc + email nhé';
 				$data['canonical']=base_url()."mn-gia-su-cap-nhat-thong-tin";
         $userid=0;
         if($_SESSION['UserInfo'] !=''){
@@ -3068,10 +3068,10 @@ if(!empty($_POST)){
     }
 		function registercandi()
     {
-			if(empty($_POST)){
-				show_404();
-			}else{
-				$hoten=$_POST['hoten'];
+		if(empty($_POST)){
+			show_404();
+		}else{
+		$hoten=$_POST['hoten'];
         $phone=$_POST['phone'];
         $email=$_POST['email'];
         $pass=$_POST['pass'];
@@ -4031,6 +4031,7 @@ if(!empty($_POST)){
     function DetailCandidate($alias,$id)
     {
         $userinfo=$this->site_model->getcandidatebyID(intval($id));
+        pr($userinfo);
         if($userinfo !=""){
 					$alias1=vn_str_filter($userinfo->Name);
 					if($alias!=$alias1){
@@ -6358,7 +6359,7 @@ echo json_encode($data,JSON_UNESCAPED_UNICODE);
         $gioitinh=$_POST['gioitinh'];
         $hinhthuclv=$_POST['hinhthuclv'];
         $honnhan=$_POST['honnhan'];
-        $hoten=$_POST['hoten'];
+        $hoten = $_POST['hoten'];
         $kinhnghiem=$_POST['kinhnghiem'];
         $kynang=$_POST['kynang'];
         $mucluong=$_POST['mucluong'];
@@ -6375,12 +6376,12 @@ echo json_encode($data,JSON_UNESCAPED_UNICODE);
         $xeploai=$_POST['xeploai'];
         $ngaysinh=$_POST['ngaysinh'];
         $data=['kq'=>false,'data'=>"cập nhật thất bại"];
-				$email=$_POST['email'];
+		$email = $_POST['email'];
         if(!empty($_SESSION['UserInfo'])){
-						if(empty($_SESSION['UserInfo']['EmailAddress'])){
-							session_start();
-							$_SESSION['UserInfo']['EmailAddress']=$email;
-						}
+			if(empty($_SESSION['UserInfo']['EmailAddress'])){
+				session_start();
+				$_SESSION['UserInfo']['EmailAddress']=$email;
+			}
             $arrtg=$_SESSION['UserInfo'];
             $userid=$arrtg['UserId'];
             $gioithieuchung=$_POST['gioithieuchung'];

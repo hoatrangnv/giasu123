@@ -143,9 +143,9 @@ $CI->load->model('site/site_model');
                             <div class="itemfeature">
                                 <div class="feature-icon">
                                     <?php if(!empty($n->Image)){?>
-                                        <img src="<?= gethumbnail(geturlimageAvatar(strtotime($n->CreateDate)).$n->Image,$n->Image,strtotime($n->CreateDate),174,174,100) ?>" onerror='this.onerror=null;this.src="images/no-image2.png";' />
+                                        <img src="<?= gethumbnail(geturlimageAvatar(strtotime($n->CreateDate)).$n->Image,$n->Image,strtotime($n->CreateDate),174,174,100) ?>" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' />
                                     <?php }else{ ?>
-                                     <img src="images/no-image2.png" alt="#" onerror='this.onerror=null;this.src="images/no-image2.png";' />
+                                     <img src="ubuntu/giasu123/images/no-image2.png" alt="#" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' />
                                      <?php } ?>
                                 </div>
                                 <div class="feature-caption">

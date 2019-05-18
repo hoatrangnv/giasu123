@@ -24,10 +24,10 @@
                             <div class="uvinfoheader-l">
                                 <span class="uvimgrepresent">
                                     <?php if(!empty($uinfo->Image)){ ?>
-                                    <img src="<?= gethumbnail(geturlimageAvatar(strtotime($uinfo->CreateDate)).$uinfo->Image,$uinfo->Image,strtotime($uinfo->CreateDate),120,120,100) ?>"  onerror='this.onerror=null;this.src="images/no-image2.png";'/><!--onerror='this.onerror=null;this.src="images/no-image2.png";'-->
+                                    <img src="<?= gethumbnail(geturlimageAvatar(strtotime($uinfo->CreateDate)).$uinfo->Image,$uinfo->Image,strtotime($uinfo->CreateDate),120,120,100) ?>"  onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";'/><!--onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";'-->
 
                                     <?php }else{ ?>
-                                    <img src="images/icon-anhdaidien.png" onerror='this.onerror=null;this.src="images/no-image2.png";'/>
+                                    <img src="images/icon-anhdaidien.png" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";'/>
                                     <?php } ?>
                                 </span>
                                 <input type="file"  accept="image/x-png,image/gif,image/jpeg" name="file-4[]" id="file-4" class="inputfile inputfile-3" data-multiple-caption="{count} files selected" multiple="">

@@ -21,9 +21,9 @@
                 <div class="item_cate">
                   <div class="img_cate">
                     <?php if(!empty($item->usc_logo)){?>
-                        <img src="<?= gethumbnail(geturlimageAvatar(strtotime($item->usc_create_time)).$item->usc_logo,$item->usc_logo,strtotime($item->usc_create_time),174,174,100) ?>" onerror='this.onerror=null;this.src="images/no-image2.png";' alt="<?php echo $item->usc_company?>"/>
+                        <img src="<?= gethumbnail(geturlimageAvatar(strtotime($item->usc_create_time)).$item->usc_logo,$item->usc_logo,strtotime($item->usc_create_time),174,174,100) ?>" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' alt="<?php echo $item->usc_company?>"/>
                     <?php }else{ ?>
-                     <img src="images/clgt.png" alt="no image" onerror='this.onerror=null;this.src="images/no-image2.png";' />
+                     <img src="images/clgt.png" alt="no image" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' />
                      <?php } ?>
                   </div>
                   <div class="center_cate">

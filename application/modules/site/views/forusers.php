@@ -173,9 +173,9 @@ if(isset($_SESSION['UserInfo']) || !empty($_SESSION['UserInfo'])){
                            <div class="company_logo">
                              <a rel="nofollow" href="<?php echo base_url().vn_str_filter($n->Name).'-gv'.$n->UserID ?>" title="<?php echo $n->Name;?>" target="_blank">
                                 <?php if(!empty($n->Image)){?>
-                                    <img src="<?= gethumbnail(geturlimageAvatar(strtotime($n->CreateDate)).$n->Image,$n->Image,strtotime($n->CreateDate),174,174,100) ?>" onerror='this.onerror=null;this.src="images/no-image2.png";' alt="<?php echo $n->Name?>" />
+                                    <img src="<?= gethumbnail(geturlimageAvatar(strtotime($n->CreateDate)).$n->Image,$n->Image,strtotime($n->CreateDate),174,174,100) ?>" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' alt="<?php echo $n->Name?>" />
                                 <?php }else{ ?>
-                                 <img src="images/no-image2.png" alt="no image" onerror='this.onerror=null;this.src="images/no-image2.png";' />
+                                 <img src="ubuntu/giasu123/images/no-image2.png" alt="no image" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' />
                                  <?php } ?>
                               </a>
                            </div>

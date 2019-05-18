@@ -44,9 +44,9 @@ if(isset($_SESSION['UserInfo']) || !empty($_SESSION['UserInfo'])){
             <div class="col-md-2 col-sm-12 padd-r-0">
                 <div class="detailjob-header teacher">
                     <?php if(!empty($item->Image)){?>
-                                        <img class="img-responsive" src="<?= gethumbnail(geturlimageAvatar(strtotime($item->CreateDate)).$item->Image,$item->Image,strtotime($item->CreateDate),180,180,100) ?>" onerror='this.onerror=null;this.src="images/no-image2.png";' alt="<?echo $item->TitleView?>" />
+                                        <img class="img-responsive" src="<?= gethumbnail(geturlimageAvatar(strtotime($item->CreateDate)).$item->Image,$item->Image,strtotime($item->CreateDate),180,180,100) ?>" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' alt="<?echo $item->TitleView?>" />
                                     <?php }else{ ?>
-                                     <img class="img-responsive" src="images/no-image2.png" alt="no image" onerror='this.onerror=null;this.src="images/no-image2.png";' />
+                                     <img class="img-responsive" src="ubuntu/giasu123/images/no-image2.png" alt="no image" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' />
                                      <?php } ?>
                 </div>
             </div>
@@ -331,9 +331,9 @@ if(isset($_SESSION['UserInfo']) || !empty($_SESSION['UserInfo'])){
                                             <div class="giasu_logo">
                                               <a rel="nofollow"href="<?php echo base_url().vn_str_filter($n->Name).'-gv'.$n->UserID ?>" title="<?php echo $n->Name; ?>">
                                                 <?php if(!empty($n->Image)){?>
-                                                    <img src="<?= gethumbnail(geturlimageAvatar(strtotime($n->CreateDate)).$n->Image,$n->Image,strtotime($n->CreateDate),174,174,100) ?>" onerror='this.onerror=null;this.src="images/no-image2.png";' alt="<?echo $n->Name ?>" />
+                                                    <img src="<?= gethumbnail(geturlimageAvatar(strtotime($n->CreateDate)).$n->Image,$n->Image,strtotime($n->CreateDate),174,174,100) ?>" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' alt="<?echo $n->Name ?>" />
                                                 <?php }else{ ?>
-                                                 <img src="images/no-image2.png" alt="no image" onerror='this.onerror=null;this.src="images/no-image2.png";' />
+                                                 <img src="ubuntu/giasu123/images/no-image2.png" alt="no image" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' />
                                                  <?php } ?>
                                                  <span class="viewnow">Xem hồ sơ</span>
                                               </a>

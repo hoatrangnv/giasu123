@@ -161,9 +161,9 @@ if(isset($_SESSION['UserInfo']) || !empty($_SESSION['UserInfo'])){
              <div class="company_logo">
                 <a rel="nofollow" href="<?php echo base_url().'lop-hoc/'.vn_str_filter($n->ClassTitle).'-'.$n->ClassID ?>" title="<?php echo $n->ClassTitle; ?>">
                   <?php if(!empty($n->Image)){?>
-                      <img src="<?= gethumbnail(geturlimageAvatar(strtotime($n->CreateDate)).$n->Image,$n->Image,strtotime($n->CreateDate),63,63,100) ?>" onerror='this.onerror=null;this.src="images/no-image2.png";' alt="no image" />
+                      <img src="<?= gethumbnail(geturlimageAvatar(strtotime($n->CreateDate)).$n->Image,$n->Image,strtotime($n->CreateDate),63,63,100) ?>" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' alt="no image" />
                   <?php }else{ ?>
-                   <img src="images/no-image2.png" alt="no image" onerror='this.onerror=null;this.src="images/no-image2.png";' />
+                   <img src="ubuntu/giasu123/images/no-image2.png" alt="no image" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' />
                    <?php } ?>
                 </a>
              </div>

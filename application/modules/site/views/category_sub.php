@@ -52,9 +52,9 @@ $urlweb=str_replace('_','.',$urlweb);
                             <div class="itemfeature">
                                 <div class="feature-icon">
                                     <?php if(!empty($n->Image)){?>
-                                        <img alt="<?php echo $n->Name; ?>" src="<?= gethumbnail(geturlimageAvatar(strtotime($n->CreateDate)).$n->Image,$n->Image,strtotime($n->CreateDate),60,60,80) ?>" onerror='this.onerror=null;this.src="images/no-image2.png";' />
+                                        <img alt="<?php echo $n->Name; ?>" src="<?= gethumbnail(geturlimageAvatar(strtotime($n->CreateDate)).$n->Image,$n->Image,strtotime($n->CreateDate),60,60,80) ?>" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' />
                                     <?php }else{ ?>
-                                     <img alt="<?php echo $n->Name; ?>" src="images/no-image2.png" alt="#" onerror='this.onerror=null;this.src="images/no-image2.png";' />
+                                     <img alt="<?php echo $n->Name; ?>" src="ubuntu/giasu123/images/no-image2.png" alt="#" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' />
                                      <?php } ?>
                                 </div>
                                 <div class="feature-caption">

@@ -46,7 +46,7 @@ class site_model extends Model
         $db_qr = $this->db->query($query);
         if($db_qr->num_rows() > 0)
         {
-            $tg1="";
+            $tg1= array();
             foreach($db_qr->result() as $itemcat)
             {
                 $tg1[]=$itemcat;
@@ -5064,7 +5064,8 @@ where uj.type=3 and uj.companyid='".$companyid."' ORDER BY uj.ID desc";
 	   curl_close($ch);
 	}
     function updatethongtinungvien($userid,$bangcap,$capbac,$congviec,$diachi,$gioitinh,$hinhthuclv,$honnhan,$hoten,$kinhnghiem,$kynang,$mucluong,$muctieu,$nganhhoc,$nganhnghe
-        ,$nganhnghekhac,$ngonngu,$noilamvieckhac,$quanhuyen,$sodienthoai,$tinhthanh,$truong,$xeploai,$ngaysinh,$gioithieuchung,$motaexp)
+        ,$nganhnghekhac,$ngonngu,$noilamvieckhac,$quanhuyen,$sodienthoai,$tinhthanh,$truong,$xeploai,$ngaysinh,$gioithieuchung,$motaexp,$email)
+    // Lionel 21
     {
         $result="";
         $tg=explode('-',$ngaysinh);

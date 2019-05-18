@@ -29,8 +29,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="<?php if(isset($meta)){echo $meta;} ?>" />
   <meta property="og:description" content="<?php if(isset($meta_des)){echo $meta_des;} ?>" />
-  <meta property="og:image:secure_url" content="<?php $image=!empty($imageog)?$imageog:'https://vieclam123.vn/images/no-image2.png';echo $image;?> " />
-  <meta property="og:image" content="<?php $image=!empty($imageog)?$imageog:'https://vieclam123.vn/images/no-image2.png';echo $image;?> " />
+  <meta property="og:image:secure_url" content="<?php $image=!empty($imageog)?$imageog:'https://vieclam123.vn/ubuntu/giasu123/images/no-image2.png';echo $image;?> " />
+  <meta property="og:image" content="<?php $image=!empty($imageog)?$imageog:'https://vieclam123.vn/ubuntu/giasu123/images/no-image2.png';echo $image;?> " />
   <!-- <meta property="og:image:width" content="600" />
   <meta property="og:image:height" content="400" /> -->
   <?php if($content=='detailteacher'){
@@ -68,8 +68,8 @@
   	"@type": "TutoringService",
 "@id":"https://vieclam123.vn/tim-gia-su",
 	"url": "https://vieclam123.vn/tim-gia-su",
-	"logo": "https://vieclam123.vn/images/no-image2.png",
-    "image":"https://vieclam123.vn/images/no-image2.png",
+	"logo": "https://vieclam123.vn/ubuntu/giasu123/images/no-image2.png",
+    "image":"https://vieclam123.vn/ubuntu/giasu123/images/no-image2.png",
     "priceRange":"0VND",
 	"hasMap": "https://www.google.com/maps/place/Vieclam123.vn/@20.9894944,105.8292627,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x53935453bd291270!8m2!3d20.9894944!4d105.8314514",
 	"email": "mailto:jobthanhxuan@gmail.com			",

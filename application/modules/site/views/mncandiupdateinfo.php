@@ -1,5 +1,5 @@
 <?php
-$userinfo = $_SESSION['UserInfo'];
+    $userinfo1 = $_SESSION['UserInfo'];
 ?>
 <section class="padd-0">
 <div class="container">
@@ -102,8 +102,8 @@ $userinfo = $_SESSION['UserInfo'];
                             </div>
                             <div class="form-control">
                             <select id="districtcandi" class="city_ab">
-                            <option data-tokens="0" value="0">Chọn quận/huyện</option>
-
+                                    <option data-tokens="0" value="0">Chọn quận/huyện</option>
+                                    <option data-tokens="1" value="1"></option>
                                 </select>
 
                             </div>
@@ -554,7 +554,7 @@ $userinfo = $_SESSION['UserInfo'];
                         }
                   },
                   error: function (xhr) {
-                      alert("error");
+                      alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
                   },
                   complete: function () {
                       $("#boxLoading").hide();
@@ -621,6 +621,7 @@ $userinfo = $_SESSION['UserInfo'];
                       $("#boxLoading").show();
                   },
                   success: function (reponse) {
+                    console.log(reponse);
                       if (reponse.kq == true) {
                          alert(reponse.data);
                          window.location.href = configulr+"mn-candi-manager";

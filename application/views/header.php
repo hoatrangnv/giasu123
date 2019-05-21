@@ -272,6 +272,14 @@ if(isset($_SESSION['UserInfo']) || !empty($_SESSION['UserInfo'])){
                                         </select>
 									 </div>
 								</div>
+                <script>
+                  var uri = window.location.toString();
+                  if (uri.indexOf("?") > 0) {
+                    var clean_uri = uri.substring(0, uri.indexOf("?"));
+                    window.history.replaceState({}, document.title, clean_uri);
+                  }
+                </script>
+                <!-- Lionel 25 -->
 								<div class="col-md-3 no-padd nganhnghe" style="width:20%;">
 									 <div class="input-group">
                     <span class="span-before"><i class="nn"></i></span>
@@ -467,12 +475,6 @@ $('#btnluuthaydoitrangthai').on('click',function(){
 
                       $("#index_lophoc").select2();
                     }
-                    // else {
-                    //   $("#index_lophoc option").remove();
-                    //       $("#index_lophoc").append(reponse.data);
-                    //
-                    //   $("#index_lophoc").select2();
-                    // }
                 },
               });
 

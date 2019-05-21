@@ -832,7 +832,7 @@ $CI->load->model('site/site_model');$ui=$_SESSION['UserInfo'];
                         }
                   },
                   error: function (xhr) {
-                      alert("error");
+                      alert('Request Status: ' + xhr.status + ' Status Text: ' + xhr.statusText + ' ' + xhr.responseText);
                   },
                   complete: function () {
                       $("#boxLoading").hide();
@@ -1031,7 +1031,7 @@ $CI->load->model('site/site_model');$ui=$_SESSION['UserInfo'];
                           }
                       },
                       error: function (xhr) {
-                          alert("error");
+                          alert("erroraaa");
                       },
                       complete: function () {
                           $("#boxLoading").hide();

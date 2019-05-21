@@ -183,7 +183,7 @@ if(isset($_SESSION['UserInfo']) || !empty($_SESSION['UserInfo'])){
                                     <div class="giasu_logo">
                                       <a rel="nofollow" href="<?php echo base_url().'lop-hoc/'.vn_str_filter($n->ClassTitle).'-'.$n->ClassID ?>" title="<?php echo $n->ClassTitle ?>">
                                         <?php if(!empty($n->Image) || strlen($n->Image) > 5){?>
-                                            <img src="<?= gethumbnail(geturlimageAvatar(strtotime($n->CreateDate)).$n->Image,$n->Image,strtotime($n->CreateDate),174,174,80) ?>" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' alt="no image" /><!-- onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";'-->
+                                            <img src="<?= gethumbnail(geturlimageAvatar(strtotime($n->CreateDate)).$n->Image,$n->Image,strtotime($n->CreateDate),174,174,80) ?>" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' alt="no image" />
                                         <?php }else{ ?>
                                          <img src="<?= gethumbnail('/ubuntu/giasu123/images/no-image2.png','no-image2.png',strtotime($n->CreateDate),174,174,80) ?>" alt="no image" onerror='this.onerror=null;this.src="ubuntu/giasu123/images/no-image2.png";' />
                                          <?php } ?>

@@ -27,7 +27,7 @@ if(isset($_SESSION['UserInfo']) || !empty($_SESSION['UserInfo'])){
             <div class="infontd">
                 <div class="infosupport">
                     <img class="imgemployer" src="images/employersp.png">
-                    <span class="chuyenvien">Chuyên viên tư vấn dành cho Gia sư</span>
+                    <span class="chuyenvien">Chuyên viên tư vấn dành cho Nhà tuyển dụng</span>
                     <!--<span><b>Ms Hải Yến - SĐT: </b><span>0977.648.623</span> <b>- Email: </b><a>yen.nguyen@gmail.com</a></span>-->
                 </div>
                 <div class="functionntd">

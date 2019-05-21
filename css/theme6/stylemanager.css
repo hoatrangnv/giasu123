@@ -11347,14 +11347,14 @@ header.manager .container {
     height: 36px;
     text-align: center;
 }
-.box-file-newest table td {
-    border: 1px solid #ececec;
-}
 .box-file-newest table th {
     border: 1px solid #e6e7e8;
     background-color: #f0f1f3;
     color: #323232;
     font-weight: 700;
+}
+.box-file-newest.uvrecruitjob .box-has-news tr {
+	border-bottom: 1px solid #ececec;
 }
 .fa-listservices:before {
     content: url(../../images/icon-listservices.png);
@@ -12178,9 +12178,12 @@ a.returnhome {
 .box-file-newest.uvrecruitjob .box-has-news tr td {
     padding-top: 15px;
     padding-bottom: 13px;
-    vertical-align: top;
-    text-align: left;
-    padding-left: 20px;
+    border-left: 1px solid #ececec;
+}
+.box-file-newest.uvrecruitjob .box-has-news tr td.actionjob {
+	width: 170px !important;
+    display: block;
+    height: 100%;
 }
 .box-file-newest.uvrecruitjob .box-has-news.teacherinvite tr td:nth-child(2)
 ,.box-file-newest.uvrecruitjob .box-has-news.teacherinvite tr td:nth-child(3)
@@ -12192,7 +12195,11 @@ a.returnhome {
     text-align: left;
     padding-left: 20px;
 }
-.box-file-newest.uvrecruitjob .box-has-news .actionjob a{font-size:13px;line-height:24px;display:inline-block;}
+.box-file-newest.uvrecruitjob .box-has-news .actionjob a{
+	font-size:13px;
+	line-height:24px;
+	display:block;
+}
 .fa-man-brown:before{content: url(../../images/icon-uv-man.png);
     position: relative;
     margin-right: 3px;}

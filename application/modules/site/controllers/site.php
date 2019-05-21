@@ -71,14 +71,9 @@ class site extends Controller
 			//$resultautocall=buildsendautocall($arrphone,'123456');
 			$data['autocall']=$resultautocall;
 			$data['tinmoinhat']=$this->site_model->GetListTeacher(8);
-			//$data['toanlyhoa']=$this->site_model->GetListTeacherTLH(12);
 			$data['vansudia']=$this->site_model->GetTopClassByMoney(6);
-			//$data['giasutheomonhoc']=$this->site_model->DemGiaSuTheoMonHoc();
-			//$data['giasutheott']=$this->site_model->DemGiaSuTheoTinhThanh();
 			$data['monhoc']=$this->site_model->ListSubject();
 			$data['parttime']=$this->site_model->GetTopNewParttime(6);
-			//$data['congtymoinhat']=$this->site_model->GetTopCompany(10);
-			//$data['ungviennoibat']=$this->site_model->GetListCandidate("1=1 ",5,'order by u.use_update_time desc');
 			$data['canonical']=base_url();
 			//$data['amp']=site_url('amp');
 			$data['showsearch']=true;
@@ -213,12 +208,6 @@ class site extends Controller
         }else{
             $data['metah1']='SO SÁNH LƯƠNG CỦA BẠN TRƯỚC KHI NHẢY VIỆC!';
         }
-
-        //$data['tinmoinhat']=$this->site_model->GetListTeacher(18);
-        //$data['toanlyhoa']=$this->site_model->GetListTeacherTLH(12);
-        //$data['vansudia']=$this->site_model->GetListTeacherVSD(5);
-        //$data['giasutheomonhoc']=$this->site_model->DemGiaSuTheoMonHoc();
-        //$data['giasutheott']=$this->site_model->DemGiaSuTheoTinhThanh();
         $data['monhoc']=$this->site_model->ListSubject();
         //$data['congtymoinhat']=$this->site_model->GetTopCompany(10);
         //$data['ungviennoibat']=$this->site_model->GetListCandidate("1=1 ",5,'order by u.use_update_time desc');
@@ -242,12 +231,6 @@ class site extends Controller
         }else{
             $data['metah1']='SO SÁNH LƯƠNG CỦA BẠN TRƯỚC KHI NHẢY VIỆC!';
         }
-
-        //$data['tinmoinhat']=$this->site_model->GetListTeacher(18);
-        //$data['toanlyhoa']=$this->site_model->GetListTeacherTLH(12);
-        //$data['vansudia']=$this->site_model->GetListTeacherVSD(5);
-        //$data['giasutheomonhoc']=$this->site_model->DemGiaSuTheoMonHoc();
-        //$data['giasutheott']=$this->site_model->DemGiaSuTheoTinhThanh();
         $data['monhoc']=$this->site_model->ListSubject();
         //$data['congtymoinhat']=$this->site_model->GetTopCompany(10);
         //$data['ungviennoibat']=$this->site_model->GetListCandidate("1=1 ",5,'order by u.use_update_time desc');
@@ -271,12 +254,6 @@ class site extends Controller
         }else{
             $data['metah1']='SO SÁNH LƯƠNG CỦA BẠN TRƯỚC KHI NHẢY VIỆC!';
         }
-
-        //$data['tinmoinhat']=$this->site_model->GetListTeacher(18);
-        //$data['toanlyhoa']=$this->site_model->GetListTeacherTLH(12);
-        //$data['vansudia']=$this->site_model->GetListTeacherVSD(5);
-        //$data['giasutheomonhoc']=$this->site_model->DemGiaSuTheoMonHoc();
-        //$data['giasutheott']=$this->site_model->DemGiaSuTheoTinhThanh();
         $data['monhoc']=$this->site_model->ListSubject();
         //$data['congtymoinhat']=$this->site_model->GetTopCompany(10);
         //$data['ungviennoibat']=$this->site_model->GetListCandidate("1=1 ",5,'order by u.use_update_time desc');
@@ -300,12 +277,6 @@ class site extends Controller
         }else{
             $data['metah1']='SO SÁNH LƯƠNG CỦA BẠN TRƯỚC KHI NHẢY VIỆC!';
         }
-
-        //$data['tinmoinhat']=$this->site_model->GetListTeacher(18);
-        //$data['toanlyhoa']=$this->site_model->GetListTeacherTLH(12);
-        //$data['vansudia']=$this->site_model->GetListTeacherVSD(5);
-        //$data['giasutheomonhoc']=$this->site_model->DemGiaSuTheoMonHoc();
-        //$data['giasutheott']=$this->site_model->DemGiaSuTheoTinhThanh();
         $data['monhoc']=$this->site_model->ListSubject();
         //$data['congtymoinhat']=$this->site_model->GetTopCompany(10);
         //$data['ungviennoibat']=$this->site_model->GetListCandidate("1=1 ",5,'order by u.use_update_time desc');
@@ -1798,9 +1769,9 @@ class site extends Controller
         $place=$_POST['place'];
         $type=$_POST['type'];
         $sex=$_POST['sex'];
-if(!empty($_POST)){
-        //var_dump($key,$subject,$topic,$place,$type);die();
-        $link=base_url()."tim-lop-hoc&key=".$key."&subject=".intval($subject)."&topic=".intval($topic)."&place=".intval($place)."&type=".intval($type)."&sex=".intval($sex)."&class=0";
+		if(!empty($_POST)){
+        $link=base_url()."giao-vien&key=".$key."&subject=".intval($subject)."&topic=".intval($topic)."&place=".intval($place)."&type=".intval($type)."&sex=".intval($sex)."&order=last";
+        // Lionel 24
         $result=['kq'=>true,'data'=>$link];
         echo json_encode($result,JSON_UNESCAPED_UNICODE);
         }else{
@@ -1809,7 +1780,6 @@ if(!empty($_POST)){
     }
 		function searchhome()
     {
-
 				$key=$_POST['key'];
         $subject=$_POST['subject'];
         $place=$_POST['place'];
@@ -2382,14 +2352,16 @@ if(!empty($_POST)){
 								}
 								//thêm link liên quan.
 								$titleCity='Gia sư '.$monhoc->SubjectName.' '.$lophoc->name.' theo tỉnh thành';
+								$linkCity = array();
 								for($i=1;$i<64;$i++){
 									$thanhpho=Getcitybyindex($i);
-									$linkCity[]='<a rel="nofollow" href="'.base_url().'gia-su-'.vn_str_filter($monhoc->SubjectName).'-'.vn_str_filter($lophoc->name).'-tai-'.vn_str_filter($thanhpho).'-s'.$subject.'c'.$i.'r'.$class.'.html" >Gia sư '.$monhoc->SubjectName.' '.$lophoc->name.' tại '.$thanhpho.'</a>';
+									$linkCity[]= '<a rel="nofollow" href="'.base_url().'gia-su-'.vn_str_filter($monhoc->SubjectName).'-'.vn_str_filter($lophoc->name).'-tai-'.vn_str_filter($thanhpho).'-s'.$subject.'c'.$i.'r'.$class.'.html" >Gia sư '.$monhoc->SubjectName.' '.$lophoc->name.' tại '.$thanhpho.'</a>';
 								}
 									$listlophoc=$this->db->select('id,name');
 									$listlophoc=$this->db->get('lophoc')->result();
 									$titleClass='Gia sư '.$monhoc->SubjectName.' tại '.$tinhthanh->cit_name.' theo lớp học';
 									$areaclass1=explode(',',$monhoc->areaclass) ;
+									$linkClass = array();
 								foreach ($listlophoc as &$valuelistlophoc) {
 									$idlistlophoc=$valuelistlophoc->id;
 									if(in_array($idlistlophoc,$areaclass1)){
@@ -2402,7 +2374,7 @@ if(!empty($_POST)){
 									foreach ($listmonhoc as &$valuelistmonhoc) {
 										$idmonhoc=$valuelistmonhoc->ID;
 										$areaclass2=explode(',',$valuelistmonhoc->areaclass);
-
+										$linkSubject = array();
 										if(in_array($class,$areaclass2)){
 											$linkSubject[]='<a rel="nofollow" href="'.base_url().'gia-su-'.vn_str_filter($valuelistmonhoc->SubjectName).'-'.vn_str_filter($lophoc->name).'-tai-'.vn_str_filter($tinhthanh->cit_name).'-s'.$valuelistmonhoc->ID.'c'.$city.'r'.$class.'.html" >Gia sư '.$valuelistmonhoc->SubjectName.' '.$lophoc->name.' tại '.$tinhthanh->cit_name.'</a>';
 										}
@@ -2525,6 +2497,7 @@ if(!empty($_POST)){
 								$desc="Tìm gia sư dạy kèm ".$monhoc->SubjectName." tại ".$tinhthanh->cit_name." cho con ✅ miễn phí, trực tiếp, không qua trung gian. Có ✅".$result['total']." gia sư ".$monhoc->SubjectName." tại ".$tinhthanh->cit_name." nhận dạy kèm phù hợp mới nhất ".$year." cho bạn lựa chọn. ✅ Chọn gia sư giỏi, nâng trình ngay!";
 								//thêm link liên quan
 								$titleCity='Gia sư '.$monhoc->SubjectName.' theo tỉnh thành';
+								$linkCity = array();
 								for($i=1;$i<64;$i++){
 									$thanhpho=Getcitybyindex($i);
 									$linkCity[]='<a rel="nofollow" href="'.base_url().'gia-su-'.vn_str_filter($monhoc->SubjectName).'-tai-'.vn_str_filter($thanhpho).'-s'.$subject.'c'.$i.'r0.html" >Gia sư '.$monhoc->SubjectName.' tại '.$thanhpho.'</a>';
@@ -2532,6 +2505,7 @@ if(!empty($_POST)){
 								$listmonhoc=$this->db->select('ID,SubjectName');
 								$listmonhoc=$this->db->get('subject')->result();
 								$titleSubject='Gia sư tại '.$tinhthanh->cit_name.' theo môn học';
+								$linkSubject = array();
 								foreach ($listmonhoc as &$valuelistmonhoc) {
 									$linkSubject[]='<a rel="nofollow" href="'.base_url().'gia-su-'.vn_str_filter($valuelistmonhoc->SubjectName).'-tai-'.vn_str_filter($tinhthanh->cit_name).'-s'.$valuelistmonhoc->ID.'c'.$city.'r0.html" >Gia sư '.$valuelistmonhoc->SubjectName.' tại '.$tinhthanh->cit_name.'</a>';
 								}
@@ -2542,6 +2516,7 @@ if(!empty($_POST)){
 								$areaclass1=explode(',',$monhoc->areaclass) ;
 								foreach ($listlophoc as &$valuelistlophoc) {
 									$idlistlophoc=$valuelistlophoc->id;
+									$linkClass = array();
 									if(in_array($idlistlophoc,$areaclass1)){
 										$linkClass[]='<a rel="nofollow" href="'.base_url().'gia-su-'.vn_str_filter($monhoc->SubjectName).'-'.vn_str_filter($valuelistlophoc->name).'-tai-'.vn_str_filter($tinhthanh->cit_name).'-s'.$subject.'c'.$city.'r'.$idlistlophoc.'.html" >Gia sư '.$monhoc->SubjectName.' '.$valuelistlophoc->name.' tại '.$tinhthanh->cit_name.'</a>';
 									}
@@ -2558,6 +2533,7 @@ if(!empty($_POST)){
 								$listmonhoc=$this->db->select('ID,SubjectName');
 								$listmonhoc=$this->db->get('subject')->result();
 								$titleSubject='Gia sư theo môn học';
+								$linkSubject = array();
 								foreach ($listmonhoc as &$valuelistmonhoc) {
 									$linkSubject[]='<a rel="nofollow" href="'.base_url().'gia-su-'.vn_str_filter($valuelistmonhoc->SubjectName).'-s'.$valuelistmonhoc->ID.'c0r0.html" >Gia sư '.$valuelistmonhoc->SubjectName.'</a>';
 								}
@@ -2565,12 +2541,14 @@ if(!empty($_POST)){
 								$listlophoc=$this->db->get('lophoc')->result();
 								$titleClass='Gia sư '.$monhoc->SubjectName.' theo lớp học';
 								$areaclass1=explode(',',$monhoc->areaclass);
+								$linkClass = array();
 								foreach ($listlophoc as &$valuelistlophoc) {
 									if(in_array($valuelistlophoc->id,$areaclass1)){
 										$linkClass[]='<a rel="nofollow" href="'.base_url().'gia-su-'.vn_str_filter($monhoc->SubjectName).'-'.vn_str_filter($valuelistlophoc->name).'-s'.$subject.'c0'.'r'.$valuelistlophoc->id.'.html" >Gia sư '.$monhoc->SubjectName.' '.$valuelistlophoc->name.'</a>';
 									}
 								}
 								$titleCity='Gia sư '.$monhoc->SubjectName.' theo tỉnh thành';
+								$linkCity = array();
 								for($i=1;$i<64;$i++){
 									$thanhpho=Getcitybyindex($i);
 									$linkCity[]='<a rel="nofollow" href="'.base_url().'gia-su-'.vn_str_filter($monhoc->SubjectName).'-tai-'.vn_str_filter($thanhpho).'-s0c'.$i.'r0.html" >Gia sư '.$monhoc->SubjectName.' tại '.$thanhpho.'</a>';
@@ -2582,6 +2560,7 @@ if(!empty($_POST)){
 								$meta="Tìm gia sư tại ".$tinhthanh->cit_name." uy tín – Có ".$result['total']." gia sư T".$day;
 								$desc="Tìm gia sư dạy kèm tại ".$tinhthanh->cit_name." cho con ✅ miễn phí, trực tiếp, không qua trung gian. Có ✅".$result['total']." gia sư tại ".$tinhthanh->cit_name." nhận dạy kèm phù hợp mới nhất ".$year." cho bạn lựa chọn. ✅ Chọn gia sư giỏi, nâng trình ngay !";
 								$titleCity='Gia sư theo tỉnh thành';
+								$linkCity = array();
 								for($i=1;$i<64;$i++){
 									$thanhpho=Getcitybyindex($i);
 									$linkCity[]='<a rel="nofollow" href="'.base_url().'gia-su-tai-'.vn_str_filter($thanhpho).'-s0c'.$i.'r0.html" >Gia sư tại '.$thanhpho.'</a>';
@@ -2589,12 +2568,14 @@ if(!empty($_POST)){
 								$titleSubject='Gia sư tại '.$tinhthanh->cit_name.' theo môn học';
 								$listmonhoc=$this->db->select('ID,SubjectName');
 								$listmonhoc=$this->db->get('subject')->result();
+								$linkSubject = array();
 								foreach ($listmonhoc as &$valuelistmonhoc) {
 									$linkSubject[]='<a rel="nofollow" href="'.base_url().'gia-su-'.vn_str_filter($valuelistmonhoc->SubjectName).'-tai-'.vn_str_filter($tinhthanh->cit_name).'-s'.$valuelistmonhoc->ID.'c'.$class.'r0.html" >Gia sư '.$valuelistmonhoc->SubjectName.' tại '.$tinhthanh->cit_name.'</a>';
 								}
 								$titleClass='Gia sư tại '.$tinhthanh->cit_name.' theo lớp học';
 								$listlophoc=$this->db->select('id,name');
 								$listlophoc=$this->db->get('lophoc')->result();
+								$linkClass = array();
 								foreach ($listlophoc as &$valuelistlophoc) {
 									$linkClass[]='<a rel="nofollow" href="'.base_url().'gia-su-'.vn_str_filter($valuelistlophoc->name).'-tai-'.vn_str_filter($tinhthanh->cit_name).'-s0c'.$city.'r'.$valuelistlophoc->id.'.html" >Gia sư '.$valuelistlophoc->name.' tại '.$tinhthanh->cit_name.'</a>';
 								}
@@ -2723,11 +2704,6 @@ if(!empty($_POST)){
 				$data['item']=$itemclass;
 				$data['monhoc']=$this->site_model->ListSubject();
 				$data['relative']=$this->site_model->GetListClassRelative($itemclass->ClassID,$itemclass->SubjectID);
-				//$data['vansudia']=$this->site_model->GetListTeacherVSD(5);
-				//$data['giasutheomonhoc']=$this->site_model->DemGiaSuTheoMonHoc();
-				//$data['giasutheott']=$this->site_model->DemGiaSuTheoTinhThanh();
-				//$data['congtymoinhat']=$this->site_model->GetTopCompany(10);
-				//$data['ungviennoibat']=$this->site_model->GetListCandidate("1=1 ",5,'order by u.use_update_time desc');
 				if(isset($_SESSION['viewclass']) || !empty($_SESSION['viewclass'])){
 						$tgview=$_SESSION['viewclass'];
 						$tgview=explode(',',$tgview);
@@ -2893,11 +2869,6 @@ if(!empty($_POST)){
         }
         $data['lstitem']=$this->site_model->GetTeacherType(12);
         $data['monhoc']=$this->site_model->ListSubject();
-        //$data['vansudia']=$this->site_model->GetListTeacherVSD(5);
-        //$data['giasutheomonhoc']=$this->site_model->DemGiaSuTheoMonHoc();
-        //$data['giasutheott']=$this->site_model->DemGiaSuTheoTinhThanh();
-        //$data['congtymoinhat']=$this->site_model->GetTopCompany(10);
-        //$data['ungviennoibat']=$this->site_model->GetListCandidate("1=1 ",5,'order by u.use_update_time desc');
 		$data['canonical']=base_url()."dang-ky-nguoi-dung";
 		//$data['amp']=site_url('amp');
 
@@ -3177,13 +3148,13 @@ if(!empty($_POST)){
 				show_404();
 			}else{
 				$tencongty=$_POST['tencongty']; //ten cong ty
-        $phone=$_POST['phone']; //sdt dung de dang ki(username).
-        $email=$_POST['email'];//email cong ty
-        $city=$_POST['city'];
-        $pass=$_POST['pass'];
-        $website=$_POST['website'];
-        $addresscom=$_POST['addresscom'];
-        $sms=$_POST['sms'];
+		        $phone=$_POST['phone']; //sdt dung de dang ki(username).
+		        $email=$_POST['email'];//email cong ty
+		        $city=$_POST['city'];
+		        $pass=$_POST['pass'];
+		        $website=$_POST['website'];
+		        $addresscom=$_POST['addresscom'];
+		        $sms=$_POST['sms'];
 				$checkname= $this->site_model->checknamecty($tencongty);
 				if(empty($checkname)){
         $kq=$this->site_model->RegisterCompany($tencongty,$phone,$email,$city,$pass,$website,$addresscom);
@@ -3196,37 +3167,18 @@ if(!empty($_POST)){
                 if(in_array($re, $arrp)){
                 $kqua=$this->site_model->updateuserssendsms($kq['userid'],$sms);
                  $arrphone=['phone_number'=>"'$phone'",'name'=>"'$tencongty'"];
-            //kichhoattaikhoan?c=<%code%>&u=<%email%>
-        //$resultautocall=buildsendautocall($arrphone,$code);
                 $message=buildsendautocall($arrphone,$code);//formatsmsmessage(2,$code);
                 $Statuscode=1;//sendsms($username,$message);
-                //$k1=$this->site_model->updatecomfirmiscall($kq['userid'],$code);
                 $iscall=1;
                 }else{
-                    // date_default_timezone_set("Asia/Bangkok");
-                    // $gio= date("H",time());
-                    // if(intval($gio) >7 && $gio < 22 ){
                         $message=formatsmsmessage(2,$code);
                         $Statuscode=sendsms($username,$message);
                     // }
                 }
 
             }else{
-                // date_default_timezone_set("Asia/Bangkok");
-                // $gio= date("H",time());
-                // if(intval($gio) >7 && $gio < 22 ){
                     $message=formatsmsmessage(2,$code);
                     $Statuscode=sendsms($username,$message);
-                // }else{
-                //     $arrphone=['phone_number'=>"'$phone'",'name'=>"'$hoten'"];
-                //     //kichhoattaikhoan?c=<%code%>&u=<%email%>
-                //     //$resultautocall=buildsendautocall($arrphone,$code);
-                //     $message=buildsendautocall($arrphone,$code);//formatsmsmessage(2,$code);
-                //     $Statuscode=1;//sendsms($username,$message);
-                //     //$k1=$this->site_model->updatecomfirmiscall($kq['userid'],$code);
-                //     $iscall=1;
-                // }
-
             }
 						$configpoint=$this->site_model->getpointconfig();
 						$Trace="users_0";
@@ -3252,10 +3204,10 @@ if(!empty($_POST)){
         }
 			}
 			else{
-					$result=['data'=>'Tên công ty đã tồn tại'];
+					$result=['kq'=>'Tên công ty đã tồn tại'];
 			}
         echo json_encode($result,JSON_UNESCAPED_UNICODE);
-			}
+		}
 
     }
     function delcookiephp()
@@ -5988,10 +5940,10 @@ $data.='<div class="popoverborder"><div class="class_content_popup"><b>Lịch d�
 		function ajaxchangetypeuser()
     {
         $data=array('kq'=>false,'msg'=>'chức năng thất bại');
-				$typeu=$this->input->post('typeu');
+		$typeu=$this->input->post('typeu');
         if(!empty($_SESSION['UserInfo'])){
-            $tg=$_SESSION['UserInfo'];
-            $userid=$tg['UserId'];
+            $tg = $_SESSION['UserInfo'];
+            $userid = $tg['UserId'];
             if($typeu==$tg['Type']){
                 $data=array('kq'=>false,'msg'=>'Đổi trạng thái thất bại, bạn vẫn đang ở trạng thái cũ');
             }else{
@@ -6512,54 +6464,51 @@ echo json_encode($data,JSON_UNESCAPED_UNICODE);
 			$data['classheader']='navbar navbar-default white bootsnav on no-full';
 			$this->load->view('template',$data);
 		}
-		function AjaxchudeCheckbox2()
-{
-	if(!empty($_POST['idmon'])){
-		$idmonhoc=$this->input->post('idmon');
-		$lsttopic=$this->site_model->ListTopicBySubject($idmonhoc);
-		$data="";
-		foreach($lsttopic as $n){
-				$data.="<li>";
-				$data.="<input class='radio-calendar' id='toppic-".$n->ID."' type='checkbox' name='toppicchk' value='".$n->ID."'>
-								<label for='toppic-".$n->ID."'>".$n->NameTopic."</label>";
-				$data.="</li>";
-		}
-		$query= 'select l.id,l.name from lophoc as l join subject as s where s.ID='.$idmonhoc.' and FIND_IN_SET(l.id,s.areaclass) ';
-		$listlophoc=$this->db->query($query)->result();
-		if(!empty($listlophoc)){
-			foreach ($listlophoc as $value) {
-				$data2.="<li>";
-				$data2.="<input class='radio-class' id='toppic-class-".$value->id."' type='checkbox' name='toppicclass' value='".$value->id."'>
-								<label for='toppic-class-".$value->id."'>".$value->name."</label>";
-				$data2.="</li>";
+	function AjaxchudeCheckbox2(){
+		if(!empty($_POST['idmon'])){
+			$idmonhoc=$this->input->post('idmon');
+			$lsttopic=$this->site_model->ListTopicBySubject($idmonhoc);
+			$data="";
+			foreach($lsttopic as $n){
+					$data.="<li>";
+					$data.="<input class='radio-calendar' id='toppic-".$n->ID."' type='checkbox' name='toppicchk' value='".$n->ID."'>
+									<label for='toppic-".$n->ID."'>".$n->NameTopic."</label>";
+					$data.="</li>";
 			}
-		}
-		$result=['kq'=>true,'data'=>$data,'data2'=>$data2];
-		echo json_encode($result,JSON_UNESCAPED_UNICODE);
-		}else{
-			show_404();
-		}
-}
-function ajaxupdateissearch1()
-{
-	if(!empty($_POST)){
-		$result=['kq'=>false,'data'=>''];
-		$issearch=$this->input->post('issearch');
-		if(!empty($_SESSION['UserInfo'])){
+			$query= 'select l.id,l.name from lophoc as l join subject as s where s.ID='.$idmonhoc.' and FIND_IN_SET(l.id,s.areaclass) ';
+			$listlophoc=$this->db->query($query)->result();
+			if(!empty($listlophoc)){
+				foreach ($listlophoc as $value) {
+					$data2.="<li>";
+					$data2.="<input class='radio-class' id='toppic-class-".$value->id."' type='checkbox' name='toppicclass' value='".$value->id."'>
+									<label for='toppic-class-".$value->id."'>".$value->name."</label>";
+					$data2.="</li>";
+				}
+			}
+			$result=['kq'=>true,'data'=>$data,'data2'=>$data2];
+			echo json_encode($result,JSON_UNESCAPED_UNICODE);
+			}else{
+				show_404();
+			}
+	}
+	function ajaxupdateissearch1(){
+		if(!empty($_POST)){
+			$result=['kq'=>false,'data'=>''];
+			$issearch=$this->input->post('issearch');
+			if(!empty($_SESSION['UserInfo'])){
 				$tg=$_SESSION['UserInfo'];
 				$userid=$tg['UserId'];
 				$lst=$this->site_model->updateissearchuser1($userid,$issearch);
 				if($lst){
 					$result=['kq'=>true,'data'=>'Cập nhật thành công'];
 				}
-		 }
-		echo json_encode($result,JSON_UNESCAPED_UNICODE);
-	}else{
-		show_404();
+			}
+			echo json_encode($result,JSON_UNESCAPED_UNICODE);
+		}else{
+			show_404();
+		}
 	}
-
-}
-function ajaxgetcodeconfirm(){
+	function ajaxgetcodeconfirm(){
 		if(!empty($_POST['code'])){
 			if($_POST['type']==0 || $_POST['type']==1 || $_POST['type']==3){
 				$type=1;
@@ -6624,74 +6573,68 @@ function ajaxgetcodeconfirm(){
 		$data['cssbody']=''	;
 		$data['classheader']='navbar navbar-default white bootsnav on no-full';
 		$this->load->view('template',$data);
+	}
+	function listcompanybyCity($alias,$city){
+		// $currentUrl= current_url();
+		$page=$start_row=$this->uri->segment(2);
+		$data['home'] = false;
+		$data['showsearch']=false;
+		$perpage=10;
+		if(empty($page)||intval($page)==0){
+				$page=0;
+		}else{
+				$page=intval($page);
 		}
-		function listcompanybyCity($alias,$city){
-
-				// $currentUrl= current_url();
-				$page=$start_row=$this->uri->segment(2);
-				$data['home'] = false;
-				$data['showsearch']=false;
-
-				$perpage=10;
-				if(empty($page)||intval($page)==0){
-						$page=0;
-				}else{
-						$page=intval($page);
-				}
-				$data['keyfilter']=['place'=>$city];
-				$result=$this->site_model->GetallcompanybyCity($city,$page,$perpage);//tìm kiếm list gia sư thỏa mãn cả 3 tiêu chí về subject(môn học), city(tỉnh thành), class(lớp học).
-				$data['lstitem']=$result['data'];
-
-				if(intval($city)>0){
-						$tinhthanh=$this->site_model->SelectProvinceByID1(intval($city));
-						$data['cityname']=$tinhthanh->cit_name;
-				}
-				if((intval($city)> 0)){ //gia sư theo tỉnh thành. xong.
-					$alias="tai-".vn_str_filter($tinhthanh->cit_name);
-						$link=base_url()."nha-tuyen-dung-".$alias."-c$city"."html";
-						$metakey="Tìm nhà tuyển dụng tại ".$tinhthanh->cit_name.",nhà tuyển dụng tại ".$tinhthanh->cit_name;
-						$meta="Tìm nhà tuyển dụng tại ".$tinhthanh->cit_name." uy tín";
-						$desc="Tìm nhà tuyển dụng tại ".$tinhthanh->cit_name."  ✅ miễn phí, trực tiếp, không qua trung gian. Có ✅".$result['total']." nhà tuyển dụng tại ".$tinhthanh->cit_name."  ✅ Chọn công ty tốt và phù hợp với tính cách!";
-						$titleCity='nhà tuyển dụng tại '.$tinhthanh->cit_name;
-						for($i=1;$i<64;$i++){
-							$thanhpho=Getcitybyindex($i);
-							$linkCity[]='<a rel="nofollow" href="'.base_url().'nha-tuyen-dung-tai-'.vn_str_filter($thanhpho).'-c'.$i.'.html" >Gia sư tại '.$thanhpho.'</a>';
-						}
-				}
-
-				$this->load->helper('locurl');
-				$refineUrl=urlRefine();
-
-					$data['tentinh'] =$tinhthanh->cit_name;
-					$data['titleCity']=$titleCity;
-					$data['linkCity']=$linkCity;
-					$this->load->library('pagination');
-					$config['total_rows'] = $result['total'];
-					$config['per_page'] = $perpage;
-					$config['uri_segment'] =2;
-					$config['next_link'] = '<i class="fa fa-angle-right"></i>';
-					$config['prev_link'] = '<i class="fa fa-angle-left"></i>';
-					$config['num_links'] = 4;
-					$config['first_link'] = '<i class="fa fa-angle-double-left"></i>';
-					$config['last_link'] = '<i class="fa fa-angle-double-right"></i>';
-					$config['base_url']=$link;
-					$this->pagination->initialize($config);
-					$data['total']=$result['total'];
-					$data['order']=$order;
-					$data['start_row']= $page;
-					$data['pagination']= $this->pagination->create_links();
-					$data['canonical']=$link;
-					$sql=$this->site_model->gettblwidthid('tbl_meta',1);
-					$data['meta_title']=$meta;
-					$data['meta_key']=$metakey;
-					$data['meta_des']=$desc;
-
-					$data['content']='Listcompanybycity';
-					$data['classheader']='navbar navbar-default white bootsnav on no-full';
-					$data['cssbody']=''	;//customsl
-					$data['showsupport']=true;
-					$this->load->view('template',$data);
-
+		$data['keyfilter']=['place'=>$city];
+		$result=$this->site_model->GetallcompanybyCity($city,$page,$perpage);//tìm kiếm list gia sư thỏa mãn cả 3 tiêu chí về subject(môn học), city(tỉnh thành), class(lớp học).
+		$data['lstitem']=$result['data'];
+		if(intval($city)>0){
+				$tinhthanh=$this->site_model->SelectProvinceByID1(intval($city));
+				$data['cityname']=$tinhthanh->cit_name;
 		}
+		if((intval($city)> 0)){ //gia sư theo tỉnh thành. xong.
+			$alias="tai-".vn_str_filter($tinhthanh->cit_name);
+			$link=base_url()."nha-tuyen-dung-".$alias."-c$city"."html";
+			$metakey="Tìm nhà tuyển dụng tại ".$tinhthanh->cit_name.",nhà tuyển dụng tại ".$tinhthanh->cit_name;
+			$meta="Tìm nhà tuyển dụng tại ".$tinhthanh->cit_name." uy tín";
+			$desc="Tìm nhà tuyển dụng tại ".$tinhthanh->cit_name."  ✅ miễn phí, trực tiếp, không qua trung gian. Có ✅".$result['total']." nhà tuyển dụng tại ".$tinhthanh->cit_name."  ✅ Chọn công ty tốt và phù hợp với tính cách!";
+			$titleCity='nhà tuyển dụng tại '.$tinhthanh->cit_name;
+			for($i=1;$i<64;$i++){
+				$thanhpho=Getcitybyindex($i);
+				$linkCity[]='<a rel="nofollow" href="'.base_url().'nha-tuyen-dung-tai-'.vn_str_filter($thanhpho).'-c'.$i.'.html" >Gia sư tại '.$thanhpho.'</a>';
+			}
+		}
+		$this->load->helper('locurl');
+		$refineUrl=urlRefine();
+		$data['tentinh'] =$tinhthanh->cit_name;
+		$data['titleCity']=$titleCity;
+		$data['linkCity']=$linkCity;
+		$this->load->library('pagination');
+		$config['total_rows'] = $result['total'];
+		$config['per_page'] = $perpage;
+		$config['uri_segment'] =2;
+		$config['next_link'] = '<i class="fa fa-angle-right"></i>';
+		$config['prev_link'] = '<i class="fa fa-angle-left"></i>';
+		$config['num_links'] = 4;
+		$config['first_link'] = '<i class="fa fa-angle-double-left"></i>';
+		$config['last_link'] = '<i class="fa fa-angle-double-right"></i>';
+		$config['base_url']=$link;
+		$this->pagination->initialize($config);
+		$data['total']=$result['total'];
+		$data['order']=$order;
+		$data['start_row']= $page;
+		$data['pagination']= $this->pagination->create_links();
+		$data['canonical']=$link;
+		$sql=$this->site_model->gettblwidthid('tbl_meta',1);
+		$data['meta_title']=$meta;
+		$data['meta_key']=$metakey;
+		$data['meta_des']=$desc;
+
+		$data['content']='Listcompanybycity';
+		$data['classheader']='navbar navbar-default white bootsnav on no-full';
+		$data['cssbody']=''	;//customsl
+		$data['showsupport']=true;
+		$this->load->view('template',$data);
+	}
 }
 ?>

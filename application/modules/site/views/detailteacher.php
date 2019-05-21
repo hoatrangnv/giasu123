@@ -19,7 +19,7 @@ if(isset($_SESSION['UserInfo']) || !empty($_SESSION['UserInfo'])){
     $kq=$CI->site_model->countclassnotteacherbyuserid($userid);
     $trace="users_".$item->UserID;
     $expiry = 20;
-    $lionel = "";
+    $lionel = "no";
     $logpoint=$CI->site_model->getlogpoint($userid,$trace);
     if (isset($_SESSION['lasttime']) && (time() - $_SESSION['lasttime'] > $expiry)) {
         $logpoint = "";
@@ -704,6 +704,8 @@ if(isset($_SESSION['UserInfo']) || !empty($_SESSION['UserInfo'])){
                             $("#boxLoading").show();
                         },
                         success: function (reponse) {
+                            // console.log(reponse);
+                            // return false;
                             if (reponse.kq == true) {
                                 window.location=reponse.data;
                             }

@@ -29,7 +29,9 @@
                             <th style="width:10%">Mức học phí</th>
                             <th style="width:10%">Môn học</th>
                             <th style="width:10%">Ngày đăng</th>
-                            <th style="width:12%">Trạng thái</th>
+                            <th style="width:12%">Trạng thái hiện tại</th>
+                            <th style="width:12%">Hành Động</th>
+                            <!-- Lionel 22 -->
                         </tr>
                         </thead>
                         <tbody>
@@ -45,13 +47,15 @@
                                 </td>
                                 <td><?php echo number_format($n->Money)." vnđ/buổi"; ?></td>
                                 <td><?php echo $n->SubjectName ?></td>
-                                <td><?php echo date('d-m-Y',strtotime($n->CreateDate)) ?>
+                                <td><?php echo date('d-m-Y',strtotime($n->CreateDate)) ?></td>
+                                <td>
                                 <?php if($n->Active == 1){ ?>
-                                    <a style="display: block;cursor: pointer;color:#ff0000;" data-val="<?php echo $n->ClassID ?>" data-id="0" class="btnhatin" title="Hạ tin đăng"><i class="fa fa-trash"></i></a>
+                                    <a style="display: block;cursor: pointer;color:#00baba;" data-val="<?php echo $n->ClassID ?>" data-id="0" class="btnhatin" title="Ấn vào để ẩn tin"><i class="fa">Hiện tin</i></a>
                                     <?php }else{ ?>
-                                    <a style="display: block;cursor: pointer;color:#00baba" data-val="<?php echo $n->ClassID ?>" data-id="1" class="btnhatin" title="Đăng tin"><i class="fa fa-check"></i></a>
+                                    <a style="display: block;cursor: pointer;color:#ff0000" data-val="<?php echo $n->ClassID ?>" data-id="1" class="btnhatin" title="Ấn vào để hiện tin"><i class="fa">Ẩn tin</i></a>
                                     <?php } ?>
                                 </td>
+                                <!-- Lionel 23 -->
                                 <td class="actionjob">
                                     <a class="btnntdupdate" data-val="<?php echo $n->ClassID ?>" data-id="<?php echo $n->ClassID ?>"><i class="fa fa-refresh"></i> Cập nhật </a>
                                     <a href="<?php echo base_url().'lop-hoc/'.vn_str_filter($n->ClassTitle).'-'.$n->ClassID ?>" target="_blank" class="btnntdviewdetail"><i class="fa fa-view-detail"></i> Chi tiết</a>
@@ -105,7 +109,7 @@
                   },
                   success: function (reponse) {
                       if (reponse.kq == true) {
-                            alert('Hạ tin thành công');
+                            alert(' Đã gỡ đăng tin thành công');
                           window.location.reload();
                       }
                       else {
@@ -126,19 +130,19 @@
            var dataid=$(this).attr('data-id');
             $.ajax(
               {
-
                   url: configulr+"/site/ajaxrefreshclass",
                   type: "POST",
                   data: {
                     cid:tg
-                        },
+                  },
                   dataType: 'json',
                   beforeSend: function () {
                       $("#boxLoading").show();
                   },
                   success: function (reponse) {
+
                       if (reponse.kq == true) {
-                            alert('Làm mới thành công');
+                          alert('Làm mới thành công');
                           window.location.reload();
                       }
                       else {

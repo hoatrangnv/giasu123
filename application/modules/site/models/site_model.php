@@ -167,7 +167,7 @@ class site_model extends Model
 				$query.=" LIMIT ".$page.",".$perpage;
 			// }
 			$db_qr = $this->db->query($query);
-			$tg1="";
+			$tg1=array();
 			if($db_qr->num_rows() > 0)
 			{
 					foreach($db_qr->result() as $itemcat)
@@ -570,9 +570,9 @@ class site_model extends Model
     }
 		function GetTopNewParttime($length)
     {
-         $timenow=date("Y-m-d",time());
+        $timenow=date("Y-m-d",time());
         $timenow1 = strtotime($timenow);
-        $query="select n.new_id,
+        $query = "select n.new_id,
                     n.new_title,
                     n.new_cat_id,
                     n.new_city,
@@ -598,7 +598,7 @@ class site_model extends Model
                     n.new_cao,
                     n.new_thuc,
                     n.new_order,
-										n.new_active,
+					n.new_active,
                     n.source,u.usc_company from new as n left join user_company as u on n.new_user_id=u.usc_id ";
                   $query.="where n.new_han_nop > '".$timenow1."' and( n.new_hot = 0 or n.new_do = 0 or n.new_gap = 0) and n.`type`=1 and n.new_active = 1 and u.usc_active =0
                     order by n.new_hot desc,
@@ -606,17 +606,12 @@ class site_model extends Model
                     n.new_gap desc,
                     n.new_cao desc, n.new_id desc limit 0,".$length;
 
-          //var_dump($query);
         $sql=$this->db->query($query);
-        $row="";
-        $arrth="";
-
-        if($sql->num_rows()> 0)
-        {
-            foreach($sql->result() as $item){
-                $row[]=$item;
-
-            }
+        $row=array();
+        if($sql->num_rows()> 0){
+          foreach($sql->result() as $item){
+            $row[]=$item;
+          }
         }
         return $row;
     }
@@ -676,7 +671,7 @@ class site_model extends Model
         $query.=" limit ".$page.",".$perpage;
         //var_dump($query);die()   ;
         $sql=$this->db->query($query);
-        $row="";
+        $row=array();
         $arrth="";
         if($sql->num_rows()> 0)
         {
@@ -1817,7 +1812,7 @@ u.IsSearch2
         $query.=" limit ".$page.",".$perpage;
 
         $sql=$this->db->query($query);
-        $row="";
+        $row=array();
         if($sql->num_rows()> 0)
         {
             foreach($sql->result() as $item){
@@ -2795,7 +2790,7 @@ GROUP BY c1.cit_id";
         $query.=" limit ".$page.",".$perpage;
 
         $db_qr = $this->db->query($query);
-        $tg1="";
+        $tg1= array();
         if($db_qr->num_rows() > 0)
         {
             foreach($db_qr->result() as $itemcat)
@@ -3123,7 +3118,7 @@ where u.UserType=1
 GROUP BY c.cit_id) c2 on c1.cit_id=c2.cit_id
 group by c1.cit_id";
 $db_qr = $this->db->query($query);
-        $tg1="";
+        $tg1=array();
         if($db_qr->num_rows() > 0)
         {
             foreach($db_qr->result() as $itemcat)
@@ -3245,12 +3240,7 @@ where tc.ClassID='".$id."'";
     }
     function GetFirstClassByUserClassID($id,$userid)
     {
-        $query="select t.*,t1.MetaDesc,
-t1.MetaTitle,
-t1.MetaKeywork,
-t1.Latitude,
-t1.Longitude
- from teacherclass as t LEFT JOIN teacherclassmeta as t1 on t1.ClassID=t.ClassID where t.UserID='".$userid."' and t.ClassID='".$id."'";
+        $query="select t.*,t1.MetaDesc, t1.MetaTitle, t1.MetaKeywork, t1.Latitude, t1.Longitude from teacherclass as t LEFT JOIN teacherclassmeta as t1 on t1.ClassID=t.ClassID where t.UserID='".$userid."' and t.ClassID='".$id."'";
         $db_qr = $this->db->query($query);
         $tg1="";
         if($db_qr->num_rows() > 0)
@@ -3324,20 +3314,9 @@ t1.Longitude
     }
 		function GetTopClassByMoney($number)
     {
-        $query="select t.*,u.`Name`,u.Phone as sodienthoaidk
-        ,u.Email
-        ,u.CityID
-        ,u.CityName,u.`Image`
-        ,u.Address as diachidk
-        ,u.Description,IFNULL(t1.denghiday,0) as denghiday,IFNULL(t1.dongyday,0) as dongyday
-         from teacherclass as t left join users as u on t.UserID=u.UserID
-        	left JOIN (select ClassID,
-        SUM(CASE WHEN uc.Active = 0 THEN 1 ELSE 0 END) AS denghiday,
-        SUM(CASE WHEN uc.Active = 1 THEN 1 ELSE 0 END) AS dongyday
-         from uservsclass as uc
-        GROUP BY ClassID) t1 on t1.ClassID=t.ClassID";
+        $query="select t.*,u.`Name`,u.Phone as sodienthoaidk,u.Email,u.CityID,u.CityName,u.`Image`,u.Address as diachidk,u.Description,IFNULL(t1.denghiday,0) as denghiday,IFNULL(t1.dongyday,0) as dongyday
+         from teacherclass as t left join users as u on t.UserID=u.UserID left JOIN (select ClassID, SUM(CASE WHEN uc.Active = 0 THEN 1 ELSE 0 END) AS denghiday, SUM(CASE WHEN uc.Active = 1 THEN 1 ELSE 0 END) AS dongyday from uservsclass as uc GROUP BY ClassID) t1 on t1.ClassID=t.ClassID";
         $query.=" where t.ClassTitle <>'' and t.`Active`=1 and u.Active=1 order by t.UpdateDate desc limit 0,".$number;
-
          $db_qr = $this->db->query($query);
         $tg1= array();
         // Lionel 2
@@ -3502,7 +3481,7 @@ GROUP BY c.cit_id) as t1 on c1.cit_id=t1.cit_id	";
     {
         $query="select * from topic where SubjectID='".intval($idsub)."'";
         $db_qr = $this->db->query($query);
-        $tg1="";
+        $tg1=array();
         if($db_qr->num_rows() > 0)
         {
 
@@ -3899,7 +3878,7 @@ TeachType,consult,classArr,Facebook)VALUES('".$ClassTitle."','".$SubjectID."','"
     {
         $query="select * from city2 where cit_parent <>0";
         $db_qr = $this->db->query($query);
-        $tg1="";
+        $tg1=array();
         if($db_qr->num_rows() > 0)
         {
             foreach($db_qr->result() as $itemcat)
@@ -4698,7 +4677,7 @@ TeachType,consult,classArr,Facebook)VALUES('".$ClassTitle."','".$SubjectID."','"
                 from teacherclass as t LEFT JOIN teacherclassmeta as t1 on t1.ClassID=t.ClassID where t.UserID='".$userid."' order by t.CreateDate desc
                 limit $startrow,$perpage";
         $db_qr = $this->db->query($query);
-        $tg1="";
+        $tg1= array();
         if($db_qr->num_rows() > 0)
         {
             foreach($db_qr->result() as $itemcat)
@@ -5132,7 +5111,7 @@ where uj.type=3 and uj.companyid='".$companyid."' ORDER BY uj.ID desc";
 					left JOIN user_company as uc on n.new_user_id=uc.usc_id
                     where uc.UserID='".$id."' order by n.new_create_time desc";
         $sql=$this->db->query($query);
-        $row="";
+        $row=array();
         if($sql->num_rows()> 0)
         {
             foreach($sql->result() as $item){

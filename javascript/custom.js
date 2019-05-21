@@ -607,39 +607,41 @@ var um=new UserManager();
 		            if(typeof($('input[name=accuracy]:checked').val())!=='undefined'){
 		                sendsms=$('input[name=accuracy]:checked').val();
 		            }
+            alert(hoten);
+            // console.log(self.validateEmail(email));
 		        if(self.validatecomregister()){
-							if(self.validateEmail(email)){
+							if(validateEmail(email)){
 								if(sendsms==0){
 									alert('Bạn cần chọn kiểu xác thực');
 								}else{
 									$.ajax(
 										{
-												url: configulr+"/site/registercompany",
-												type: "POST",
-												data: { tencongty: hoten, phone: phone,email:email,city:city,pass:pass,website:website,addresscom:addresscom,sms:sendsms },
-												dataType: 'json',
-												beforeSend: function () {
-														$("#boxLoading").show();
-												},
-												success: function (reponse) {
-														if (reponse.kq == true) {
-															alert('Bạn đã đăng ký thành công, vui lòng check email để xác nhận tài khoản, mã xác nhận được đọc qua cuộc gọi tới số điện thoại của bạn');
-															var urlredirect=configulr+"/kichhoattaikhoan&c="+reponse.code+"&u="+reponse.uname;
-																window.location.href = urlredirect;
-																//window.location = configulr;
-														}
-														else {
-
-														}
-												},
-												error: function (xhr) {
-														alert("error");
-												},
-												complete: function () {
-														$("#boxLoading").hide();
-														//window.location = configulr;
-												}
-										});
+											url: configulr+"/site/registercompany",
+											type: "POST",
+											data: { tencongty: hoten, phone: phone,email:email,city:city,pass:pass,website:website,addresscom:addresscom,sms:sendsms, hoten: 'hotenhihihihi' },
+											dataType: 'json',
+											beforeSend: function () {
+													$("#boxLoading").show();
+											},
+											success: function (reponse) {
+                        console.log(reponse);
+                        return false;
+													if (reponse.kq == true) {
+														alert('Bạn đã đăng ký thành công, vui lòng check email để xác nhận tài khoản, mã xác nhận được đọc qua cuộc gọi tới số điện thoại của bạn');
+														var urlredirect=configulr+"/kichhoattaikhoan&c="+reponse.code+"&u="+reponse.uname;
+														window.location.href = urlredirect;
+													}
+													else {
+													}
+											},
+											error: function (xhr) {
+												alert("error");
+											},
+											complete: function () {
+												$("#boxLoading").hide();
+											}
+									  }
+                  );
 								}
 							}else{
 								alert("Email không đúng định dạng");
@@ -657,92 +659,6 @@ var um=new UserManager();
         var term = $('input[name=user-terms]:checked').val();
         var city=$('#citycandi').val();
         var ngaysinh=$('#txtngaysinh').val();
-        /*if ($.trim(ngaysinh) == '') {
-            $($('#txtngaysinh')).attr('data-original-title', 'Nhập ngày sinh').tooltip('show').addClass('errorClass');
-            flag = false;
-        } else {
-            $('#txtngaysinh').data("title", "").removeClass("errorClass").tooltip("destroy");;
-        }
-            var gioitinh=$('#candisex').val();
-        if($.trim(gioitinh)=='0'){
-            $('#candisex').addClass('errorClass');
-        }else{
-            $('#candisex').removeClass('errorClass');
-        }
-            var honnhan=$('#candimarriage').val();
-        if($.trim(honnhan)=='0'){
-            $('#candimarriage').addClass('errorClass');
-        }else{
-            $('#candimarriage').removeClass('errorClass');
-        }
-            var cvtitle=$('#jobwish').val();
-            var bangcap=$('#candibangcap').val();
-        if($.trim(bangcap)=='0'){
-            $('#candibangcap').addClass('errorClass');
-        }else{
-            $('#candibangcap').removeClass('errorClass');
-        }
-            var hinhthuclamviec=$('#candihtlv').val();
-        if($.trim(hinhthuclamviec)=='0'){
-            $('#candihtlv').addClass('errorClass');
-        }else{
-            $('#candihtlv').removeClass('errorClass');
-        }
-            var capbac=$('#candicapbac').val();
-        if($.trim(capbac)=='0'){
-            $('#candicapbac').addClass('errorClass');
-        }else{
-            $('#candicapbac').removeClass('errorClass');
-        }
-            var nganhnghe=$('#candicategory').val();
-        if($.trim(nganhnghe)=='0'){
-            $('#candicategory').addClass('errorClass');
-        }else{
-            $('#candicategory').removeClass('errorClass');
-        }
-            var muctieu=$('#canditarget').val();
-        if ($.trim(muctieu) == '') {
-            $($('#canditarget')).attr('data-original-title', 'Nhập mục tiêu').tooltip('show').addClass('errorClass');
-            flag = false;
-        } else {
-            $('#canditarget').data("title", "").removeClass("errorClass").tooltip("destroy");;
-        }
-            var kynang=$('#candiskill').val();
-        if ($.trim(kynang) == '') {
-            $($('#candiskill')).attr('data-original-title', 'Nhập kỹ năng').tooltip('show').addClass('errorClass');
-            flag = false;
-        } else {
-            $('#candiskill').data("title", "").removeClass("errorClass").tooltip("destroy");;
-        }
-        if ($.trim(hoten) == '') {
-            $($('#namecandi')).attr('data-original-title', 'Nhập họ tên').tooltip('show').addClass('errorClass');
-            flag = false;
-        } else {
-            $('#namecandi').data("title", "").removeClass("errorClass").tooltip("destroy");;
-        }
-
-        if ($.trim(phone) == '') {
-            $($('#phonecandi')).attr('data-original-title', 'Nhập số điện thoại').tooltip('show').addClass('errorClass');
-            flag = false;
-        } else {
-            $('#phonecandi').data("title", "").removeClass("errorClass").tooltip("destroy");;
-        }
-
-        if ($.trim(email) == '') {
-            $($('#emailcandi')).attr('data-original-title', 'Nhập địa chỉ email').tooltip('show').addClass('errorClass');
-            flag = false;
-        } else {
-            $('#emailcandi').data("title", "").removeClass("errorClass").tooltip("destroy");;
-        }
-*/
-        //if ($.trim(email) != '') {
-//            if (!Common.IsValidEmail(email)) {
-//                $($('#emailcandi')).attr('data-original-title', 'Email không hợp lệ').tooltip('show').addClass('errorClass');
-//                flag = false;
-//            } else {
-//                $('#emailcandi').data("title", "").removeClass("errorClass").tooltip("destroy");
-//            }
-//        }
 if ($.trim(pass) == '') {
             $($('#passcandi')).attr('data-original-title', 'Nhập mật khẩu').tooltip('show').addClass('errorClass');
             flag = false;
@@ -775,9 +691,9 @@ if ($.trim(pass) == '') {
     };
 		//check email
 		function validateEmail(email) {
-					var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-					return re.test(email);
-				}
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
     self.validatecomregister = function () {
         var flag = true;
 
@@ -819,13 +735,6 @@ if ($.trim(pass) == '') {
         }
 
         //if ($.trim(email) != '') {
-//            if (!Common.IsValidEmail(email)) {
-//                $($('#usercompany')).attr('data-original-title', 'Email không hợp lệ').tooltip('show').addClass('errorClass');
-//                flag = false;
-//            } else {
-//                $('#usercompany').data("title", "").removeClass("errorClass").tooltip("destroy");
-//            }
-//        }
 if ($.trim(pass) == '') {
             $($('#passcompany')).attr('data-original-title', 'Nhập mật khẩu').tooltip('show').addClass('errorClass');
             flag = false;

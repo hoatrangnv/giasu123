@@ -14,7 +14,7 @@
                     </div>-->
                     <div class="countitem">Tổng số: <?php echo $giaovienluu->sogcluu ?></div>
                 </div>
-               <div class="box-file-newest uvrecruitjob">
+               <div class="box-file-newest uvrecruitjob lionelpp">
                     <div class="title"><i class="fa fa-man-brown"></i> Danh sách gia sư đã lưu                    
                     </div>
                     <table class="uv-ungtuyen box-has-news teachersave">
